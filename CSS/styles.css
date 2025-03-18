@@ -1,0 +1,547 @@
+/* Estilos base */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #fdf2f8; /* Fondo rosa pastel muy suave */
+}
+
+/* Estilos del libro */
+.book-container {
+    perspective: 1000px;
+}
+
+.book {
+    background: linear-gradient(to right, #fff5f7, #fff);
+    box-shadow: 0 10px 30px rgba(244, 114, 182, 0.1); /* Sombra rosa suave */
+}
+
+/* Estilos de la página */
+.book-page {
+    position: relative;
+    min-height: 100vh;
+    overflow-y: auto;
+    padding: 2rem;
+    scroll-behavior: smooth;
+    display: block !important;
+    opacity: 1 !important;
+    background: linear-gradient(135deg, #fff5f7 0%, #fff 100%);
+}
+
+/* Contenido de la carta */
+.letter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 253, 250, 0.9);
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.letter-content p {
+    opacity: 1;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Primera letra decorativa */
+.letter-content p:first-of-type::first-letter {
+    font-size: 3.5rem;
+    float: left;
+    line-height: 1;
+    padding-right: 0.5rem;
+    color: #e11d48;
+}
+
+/* Citas en la carta */
+.letter-content blockquote {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid #fecdd3;
+    font-style: italic;
+    color: #4b5563;
+}
+
+/* Estilos para las memorias */
+.memory-item {
+    background-color: #fff1f2;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
+}
+
+.memory-item:hover {
+    transform: translateX(10px);
+}
+
+/* Estilos para las 100 razones */
+.reason-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #e11d48;
+    transition: all 0.2s ease;
+}
+
+.reason-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la galería de fotos */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    gap: 3rem;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.memory-photo-card {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.memory-photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.memory-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-date {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255,255,255,0.95);
+    padding: 0.75rem 1.25rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: #e11d48;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .memories-grid {
+        grid-template-columns: repeat(1, 500px);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .memories-grid {
+        grid-template-columns: repeat(1, 320px);
+    }
+    
+    .memory-photo-card {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fdf2f8;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f472b6, #db2777);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #db2777, #be185d);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    opacity: 1;
+}
+
+/* Estilos para el lomo del libro */
+.book::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 100%;
+    background: linear-gradient(to right, #e5e7eb, #f3f4f6);
+    border-radius: 4px 0 0 4px;
+}
+
+/* Estilos para las fotos */
+.photo-space {
+    margin: 2rem 0;
+}
+
+.photo-space img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.photo-space img:hover {
+    transform: scale(1.02);
+}
+
+/* Estilos para las tarjetas de recuerdos */
+.memory-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.memory-date {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    color: #e11d48;
+    font-weight: 600;
+}
+
+.memory-content {
+    padding: 1.5rem;
+}
+
+.memory-title {
+    font-size: 1.25rem;
+    color: #1f2937;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.memory-description {
+    color: #4b5563;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.memory-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.memory-tag {
+    background: #fff1f2;
+    color: #e11d48;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    margin: 2em 0;
+    position: relative;
+}
+
+/* Animación para las razones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll personalizado para la carta */
+.letter-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.letter-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Efecto de papel antiguo */
+.letter-content {
+    background-color: rgba(255, 253, 250, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Animaciones para la carta */
+@keyframes fadeInLetter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letter-content p:nth-child(n) {
+    animation-delay: calc(n * 0.2s);
+}
+
+/* Efecto de libro */
+.book {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+/* Efecto de página */
+.page {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+.turning {
+    display: block !important;
+}
+
+/* Esquina de página */
+.page-corner {
+    display: none;
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Estilos para la sección de música */
+.music-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: linear-gradient(145deg, #fff, #fdf2f8);
+    border-radius: 2rem;
+    box-shadow: 
+        0 10px 30px rgba(244, 114, 182, 0.1),
+        inset 0 -2px 6px rgba(244, 114, 182, 0.05);
+}
+
+/* Encabezado de la playlist */
+.playlist-header {
+    text-align: center;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.playlist-icon {
+    font-size: 3rem;
+    color: #db2777;
+    animation: float 3s ease-in-out infinite;
+}
+
+.playlist-description {
+    font-size: 1.25rem;
+    color: #9d174d;
+    font-style: italic;
+    margin-top: 1rem;
+    text-shadow: 1px 1px 2px rgba(244, 114, 182, 0.1);
+}
+
+/* Contenedor del reproductor de Spotify */
+.spotify-playlist {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 20px rgba(244, 114, 182, 0.15),
+        0 2px 6px rgba(244, 114, 182, 0.1);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(244, 114, 182, 0.1);
+    background: white;
+    padding: 0.5rem;
+}
+
+.spotify-playlist:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 12px 25px rgba(244, 114, 182, 0.2),
+        0 3px 8px rgba(244, 114, 182, 0.15);
+}
+
+/* Pie de la playlist */
+.playlist-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(244, 114, 182, 0.1);
+}
+
+.music-note-left,
+.music-note-right,
+.heart-icon {
+    font-size: 1.5rem;
+    color: #db2777;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.heart-icon {
+    font-size: 2rem;
+    color: #be185d;
+    opacity: 0.8;
+}
+
+.music-note-left:hover,
+.music-note-right:hover,
+.heart-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Animación flotante */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Efectos decorativos adicionales */
+.music-container::before,
+.music-container::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #fdf2f8 0%, transparent 100%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.music-container::before {
+    top: -20px;
+    left: -20px;
+}
+
+.music-container::after {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(180deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .music-container {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .playlist-description {
+        font-size: 1rem;
+    }
+
+    .playlist-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-container {
+        padding: 1rem;
+    }
+
+    .spotify-playlist {
+        border-radius: 1rem;
+    }
+
+    .playlist-footer {
+        gap: 1rem;
+    }
+}
+
+/* Actualización de los títulos */
+h2.text-4xl {
+    color: #db2777; /* Rosa más intenso para títulos */
+    text-shadow: 2px 2px 4px rgba(219, 39, 119, 0.1);
+    position: relative;
+}
+
+h2.text-4xl::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #fdf2f8, #db2777, #fdf2f8);
+    border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .music-container {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    h2.text-4xl {
+        font-size: 1.875rem;
+    }
+} 
